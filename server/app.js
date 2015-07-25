@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db');
+var models = require('./models');
 
 // Middleware
 var morgan = require('morgan');
@@ -29,6 +30,11 @@ if (!module.parent) {
   app.listen(app.get("port"));
   console.log("Listening on", app.get("port"));
 }
+
+
+//Test excerpt
+models.messages.post();
+models.messages.get();
 
 //handle the get request from client
 	//once we get the get request process this by adding the models to DB
