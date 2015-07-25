@@ -59,10 +59,11 @@ $(function() {
         url: app.server,
         type: 'GET',
         contentType: 'application/json',
-        data: { order: '-createdAt'},
+        data: { //order: '-createdAt'
+              },
         success: function(data) {
           console.log('chatterbox: Messages fetched');
-
+          console.log(data);
           // Don't bother if we have nothing to work with
           if (!data.results || !data.results.length) { return; }
 
@@ -157,7 +158,7 @@ $(function() {
           $username.addClass('friend');
 
         var $message = $('<br><span/>');
-        $message.text(data.text).appendTo($chat);
+        $message.text(data.message).appendTo($chat); //data.text
 
         // Add the message to the UI
         app.$chats.append($chat);
@@ -210,7 +211,7 @@ $(function() {
     handleSubmit: function(evt) {
       var message = {
         username: app.username,
-        text: app.$message.val(),
+        message: app.$message.val(),
         roomname: app.roomname || 'lobby'
       };
 
