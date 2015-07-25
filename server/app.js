@@ -30,3 +30,13 @@ if (!module.parent) {
   console.log("Listening on", app.get("port"));
 }
 
+//handle the get request from client
+	//once we get the get request process this by adding the models to DB
+	//initiate get to chat DB (model.get)
+	//package and respond to the client (server-app.js getmethod)
+
+//handle post from client
+	//get the message in model's POST handler
+	//model's POST handler posts and gets chats from chat DB
+	//model's POST handler requests a GET from the DB
+	//model's POST handler sends backk the entire list to the chatterbox client

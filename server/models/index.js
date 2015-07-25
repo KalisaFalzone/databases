@@ -1,5 +1,6 @@
-var db = require('../db');
+//MODELS
 
+var db = require('../db');
 
 
 

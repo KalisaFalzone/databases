@@ -1,3 +1,4 @@
+//DB - Index
 var mysql = require('mysql');
 
 // Create a database connection and export it from this file.
