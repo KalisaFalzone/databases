@@ -13,9 +13,10 @@ var mysql = require('mysql');
 	});
 
 exports.insert = function(message){
-	connection.query('INSERT INTO messages VALUES (' + 1 +',"'+ message.message +'","'+ message.room +'","'+ message.username + '");' );
+	connection.query('INSERT INTO messages VALUES (' + message.objectID +',"'+ message.message +'","'+ message.room +'","'+ message.username + '");' );
 	//connection.query('INSERT INTO messages VALUES (99,"haimachi","roomroom","raghavabboy");');
 	// connection.query('INSERT INTO messages VALUES (99,\'haimachi\',\'roomroom\',\'raghavabboy\');');
+
 };
 
 exports.select = function(callback) {

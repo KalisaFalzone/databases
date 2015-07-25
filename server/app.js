@@ -25,13 +25,12 @@ app.set("port", 3000);
 // // Logging and parsing
  app.use(morgan('dev'));
  app.use(parser.json());
-
+ app.use(parser.urlencoded({ extended: true }));
 // // Set up our routes
  app.use("/classes", router);
 
 // // Serve the client files
  app.use(express.static(__dirname + "/../client"));
-
 
 //Allow Cross Origin Requests to pass through
  app.use(function(req, res, next) {
@@ -57,12 +56,13 @@ app.get('/classes', function(request, response) {
 });
 
 app.post('/classes', function(request, response){
-
-
+	console.log(request.body);
+	models.messages.post(request.body);
+	response.end();
 })
 
 //Test excerpt - DBMS's get and post methods
-models.messages.post();
+//models.messages.post();
 //models.messages.get();
 
 //handle the get request from client

@@ -27,7 +27,7 @@ CREATE TABLE users (
   username TEXT
 );
 
-INSERT INTO messages VALUES (1, 'hihihi', 'roomie', 'usernamie');
+INSERT INTO messages VALUES (1, 'First Message', 'lobby', 'admin');
 INSERT INTO users VALUES (1, 'admin');
 
 -- View the Tables
