@@ -69,6 +69,7 @@ $(function() {
 
           // Get the last message
           var mostRecentMessage = data.results[data.results.length-1];
+          //var mostRecentMessage = data.results[0];
           var displayedRoom = $('.chat span').first().data('roomname');
           app.stopSpinner();
           // Only bother updating the DOM if we have a new message

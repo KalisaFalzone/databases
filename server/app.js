@@ -56,9 +56,10 @@ app.get('/classes', function(request, response) {
 });
 
 app.post('/classes', function(request, response){
-	console.log(request.body);
+	 console.log('Received Message:');
+	 console.log(request.body);
 	models.messages.post(request.body);
-	response.end();
+	//response.end(request.body);
 })
 
 //Test excerpt - DBMS's get and post methods
