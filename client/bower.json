@@ -1,0 +1,20 @@
+{
+  "name": "MKS20-databases",
+  "version": "0.0.0",
+  "homepage": "https://github.com/KalisaFalzone/MKS20-databases",
+  "authors": [
+    "MKS-students <mks.students@hackreactor.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "jquery": "~2.1.4"
+  }
+}

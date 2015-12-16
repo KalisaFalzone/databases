@@ -5,6 +5,10 @@
  *  node mongo-example.js
  */
 var mongodb = require("mongodb");
+var mongoClient = require('mongodb').MongoClient;
+var assert = require('assert')
+var ObjectId = require('mongodb').ObjectID;
+var url = 'mongodb://localhost:27017/test';
 
 var server = new mongodb.Server("127.0.0.1", 27017, {});
 // 27017 is the default port for connecting to MongoDB
@@ -43,6 +47,58 @@ client.open(function(err, p_client) {
         client.close();
         console.log("Closed the collection");
       });
+
     });
+
   });
 });
+
+//Insert a new document
+var insertDocument = function(db, callback) {
+   db.collection('demo-collection').insertOne( {
+        name: "Kalisa",
+        password: "932764e87122746",
+        hair: "rainbow"
+
+      }, function(err, result) {
+           assert.equal(err, null);
+           if(err) { console.log('Insert Failed.'); }
+           else {
+             console.log("Inserted a document into the demo collection.");
+             callback(result);
+           }
+         });
+};
+
+mongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  insertDocument(db, function(result) {
+      console.log(result);
+      db.close();
+  });
+});
+
+//Find and Display Documents
+var findDocuments = function(db, callback) {
+   var cursor = db.collection('demo-collection').find( );
+   cursor.each(function(err, doc) {
+      assert.equal(err, null);
+      if (doc != null) {
+         console.log('Find Operation');
+         console.log(doc);
+      } else {
+         callback();
+      }
+   });
+};
+
+mongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  findDocuments(db, function() {
+      db.close();
+  });
+});
+
+
+
+
